@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block body %}
+<ul>
+  {% for article in articles %}
+      <li><a href="{{ article.url }}">{{ article.title }} - {{ article.publishedAt | date() }} - {{ article.provider.name }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
