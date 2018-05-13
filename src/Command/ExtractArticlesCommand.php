@@ -6,7 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use FeedIo\Factory;
+use App\Manager\ProviderManager;
 use App\Entity\Article;
 use App\Entity\Provider;
 
@@ -14,10 +14,12 @@ class ExtractArticlesCommand extends Command
 {
 
     private $entityManager;
+    private $providerManager;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, ProviderManager $providerManager)
     {
         $this->entityManager = $entityManager;
+        $this->providerManager = $providerManager;
 
         parent::__construct();
     }
@@ -31,41 +33,17 @@ class ExtractArticlesCommand extends Command
     {
       $output->writeln('EXTRACT ARTICLES !!!');
 
-      // create a simple FeedIo instance
-      $feedIo = Factory::create()->getFeedIo();
+      $providers = $this->providerManager->getAll();
 
-      $repository = $this->entityManager->getRepository(Provider::class);
+      foreach ($providers as $providerId => $providerData) {
 
-      $providers = $repository->findAll();
+        $provider = $this->providerManager->getProviderClass($providerId);
 
-      foreach ($providers as $provider) {
-        // read a feed
-        $result = $feedIo->read($provider->getFeedUrl());
+        $output->writeln('EXTRACT PROVIDER : ' . $providerId);
 
-        // iterate through items
-        foreach( $result->getFeed() as $item ) {
+        $articles = $provider->getNewArticles();
 
-
-            $article = new Article();
-            $article->setTitle($item->getTitle());
-            $article->setUrl($item->getLink());
-            $article->setProvider($provider);
-            $article->setPublishedAt(new \DateTime());
-
-            foreach ($item->getAllElements() as $element) {
-
-              if($element->getName() == "dc:date"){
-
-                $publishedAt = new \DateTime($element->getValue());
-                $article->setPublishedAt($publishedAt);
-              }
-            }
-
-            $this->entityManager->persist($article);
-
-            $this->entityManager->flush();
-
-        }
+        var_dump($articles);
       }
 
     }

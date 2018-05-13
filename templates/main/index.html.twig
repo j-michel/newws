@@ -1,11 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello!{% endblock %}
-
 {% block body %}
-<ul>
   {% for article in articles %}
-      <li><a href="{{ article.url }}">{{ article.title }} - {{ article.publishedAt | date() }} - {{ article.provider.name }}</a></li>
+      <div class="uk-card-small uk-card-default uk-card-hover uk-grid-collapse uk-margin" uk-grid>
+          <div class="uk-card-media-left uk-cover-container uk-width-1-4@s">
+              <img src="{{article.coverUrl}}" alt="" uk-cover>
+              <canvas width="600" height="400"></canvas>
+          </div>
+          <div class="uk-width-3-4@s">
+              <div class="uk-card-body">
+                  <h3 class="uk-card-title">
+                    <a href="{{article.url}}" target="_blank">{{ article.title }}</a>
+                  </h3>
+                  <p>{{article.description }}</p>
+              </div>
+              <div class="uk-card-footer">
+                  <p>{{ article.publishedAt | date('d/m/Y') }} - <a href="">{{ article.provider }}</a></p>
+              </div>
+          </div>
+      </div>
   {% endfor %}
-</ul>
 {% endblock %}

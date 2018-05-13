@@ -13,13 +13,8 @@ class MainController extends Controller
      */
     public function index()
     {
-        $repository = $this->getDoctrine()->getManager()->getRepository(Article::class);
-
-        $articles = $repository->findAll();
-
-
         return $this->render('main/index.html.twig', [
-            'articles' => $articles,
+            'articles' => $this->getDoctrine()->getManager()->getRepository(Article::class)->getLasts(),
         ]);
     }
 }

@@ -1,0 +1,17 @@
+providers:
+    lundimatin:
+        name: lundimatin
+        url: https://lundi.am
+        feed: https://lundi.am/spip.php?page=backend
+    fakir:
+        name: Fakir
+        url: http://www.fakirpresse.info
+        feed: http://www.fakirpresse.info/spip.php?page=backend
+    labas:
+        name: Là-bas si j'y suis
+        url: https://la-bas.org
+        feed: https://la-bas.org/spip.php?page=backend
+    acrimed:
+        name: Acrimed
+        url: http://www.acrimed.org
+        feed: http://www.acrimed.org/spip.php?page=backend 
