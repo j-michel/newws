@@ -17,7 +17,7 @@ class BaseProvider
       $this->id   = $id;
       $this->name = $providerData['name'];
       $this->feed = $providerData['feed'];
-      $this->url = $providerData['url'];
+      $this->url  = $providerData['url'];
   }
 
   public function getNewArticles()
@@ -33,6 +33,7 @@ class BaseProvider
           'coverUrl'    => $this->getItemCoverUrl($item),
           'author'      => $this->getAuthor($item),
           'publishedAt' => $this->getPublishedAt($item),
+          'provider'    => $this->id
         );
     }
 
@@ -77,6 +78,6 @@ class BaseProvider
 
         return new \DateTime($element->getValue());
       }
-    }    
+    }
   }
 }

@@ -3,6 +3,7 @@
 namespace App\Provider;
 
 use Symfony\Component\DomCrawler\Crawler;
+use Goutte\Client;
 
 class FakirProvider extends BaseProvider
 {
@@ -11,5 +12,14 @@ class FakirProvider extends BaseProvider
     $crawler = new Crawler($item->getDescription());
 
     return $crawler->filter('p')->first()->text();
+  }
+
+  protected function getItemCoverUrl($item)
+  {
+    $client = new Client();
+
+    $crawler = $client->request('GET', $item->getLink());
+
+    return 'http://www.fakirpresse.info/' . $crawler->filter('.article > img')->first()->attr('src');
   }
 }

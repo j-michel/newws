@@ -5,7 +5,7 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Manager\ArticleManager;
 use App\Manager\ProviderManager;
 use App\Entity\Article;
 use App\Entity\Provider;
@@ -13,12 +13,12 @@ use App\Entity\Provider;
 class ExtractArticlesCommand extends Command
 {
 
-    private $entityManager;
+    private $articleManager;
     private $providerManager;
 
-    public function __construct(EntityManagerInterface $entityManager, ProviderManager $providerManager)
+    public function __construct(ArticleManager $articleManager, ProviderManager $providerManager)
     {
-        $this->entityManager = $entityManager;
+        $this->articleManager  = $articleManager;
         $this->providerManager = $providerManager;
 
         parent::__construct();
@@ -43,7 +43,7 @@ class ExtractArticlesCommand extends Command
 
         $articles = $provider->getNewArticles();
 
-        var_dump($articles);
+        $this->articleManager->saveNewArticles($articles);
       }
 
     }

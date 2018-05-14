@@ -27,10 +27,16 @@ class ArticleRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('article')
             ->orderBy('article.publishedAt', 'DESC')
-            ->setMaxResults(20)
+            ->setMaxResults(50)
             ->getQuery()
             ->getResult()
         ;
+    }
+
+    public function save($article)
+    {
+      $this->getEntityManager()->persist($article);
+      $this->getEntityManager()->flush();
     }
 
     /*
