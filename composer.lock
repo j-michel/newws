@@ -5211,63 +5211,6 @@
     ],
     "packages-dev": [
         {
-            "name": "debril/rss-atom-bundle",
-            "version": "v4.2.0",
-            "target-dir": "Debril/RssAtomBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alexdebril/rss-atom-bundle.git",
-                "reference": "f6d246fe9e611eac281c70e5f9c91f650b7eee2f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alexdebril/rss-atom-bundle/zipball/f6d246fe9e611eac281c70e5f9c91f650b7eee2f",
-                "reference": "f6d246fe9e611eac281c70e5f9c91f650b7eee2f",
-                "shasum": ""
-            },
-            "require": {
-                "debril/feed-io": "~3.0|~4.0",
-                "php": ">=7.1",
-                "symfony/config": "~3.4|~4.0",
-                "symfony/dependency-injection": "~3.4|~4.0",
-                "symfony/framework-bundle": "~3.4|~4.0",
-                "symfony/http-foundation": "~3.4|~4.0",
-                "symfony/http-kernel": "~3.4|~4.0"
-            },
-            "require-dev": {
-                "doctrine/common": "~2.3",
-                "doctrine/doctrine-bundle": "~1.2",
-                "phpunit/phpunit": "~7.0",
-                "symfony/browser-kit": ">3.0",
-                "symfony/finder": ">3.0",
-                "symfony/validator": ">3.0",
-                "symfony/yaml": "^4.0"
-            },
-            "suggest": {
-                "doctrine/doctrine-bundle": "allow to provide feeds' content from database"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Debril\\RssAtomBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "RSS / Atom and JSONFeed support for Symfony",
-            "homepage": "http://debril.org/category/rss-atom-bundle/",
-            "keywords": [
-                "Syndication",
-                "atom",
-                "feed",
-                "jsonfeed",
-                "rss"
-            ],
-            "time": "2018-04-20T14:45:05+00:00"
-        },
-        {
             "name": "easycorp/easy-deploy-bundle",
             "version": "v1.0.5",
             "source": {

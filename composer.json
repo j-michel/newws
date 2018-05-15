@@ -24,8 +24,7 @@
         "symfony/validator": "^4.0",
         "symfony/web-link": "^4.0",
         "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.0",
-        "symfony/symfony": "4.0.*"
+        "symfony/yaml": "^4.0"
     },
     "require-dev": {
         "easycorp/easy-deploy-bundle": "^1.0",
