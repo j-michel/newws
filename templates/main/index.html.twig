@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block body %}
   {% for article in articles %}
+
+      {% set provider = provider_manager.getOne(article.provider) %}
+
       <div class="uk-card-small uk-card-default uk-card-hover uk-grid-collapse uk-margin" uk-grid>
           <div class="uk-card-media-left uk-cover-container uk-width-1-4@s">
               <img src="{{article.coverUrl}}" alt="" uk-cover>
@@ -15,7 +20,11 @@
                   <p>{{article.description }}</p>
               </div>
               <div class="uk-card-footer">
-                  <p>{{ article.publishedAt | date('d/m/Y') }} - <a href="">{{ article.provider }}</a></p>
+                  <p>
+                      {{ article.publishedAt | date('d/m/Y') }} -
+                      <a href="{{ provider.url }}">{{ provider.name }}</a> -
+                      {{ article.author }}
+                  </p>
               </div>
           </div>
       </div>

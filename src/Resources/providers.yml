@@ -1,4 +1,12 @@
 providers:
+    mediapart:
+        name: Mediapart
+        url: https://www.mediapart.fr
+        feed: https://www.mediapart.fr/articles/feed
+    ballast:
+        name: Ballast
+        url: https://www.revue-ballast.fr
+        feed: https://www.revue-ballast.fr/feed/
     lundimatin:
         name: lundimatin
         url: https://lundi.am
@@ -14,4 +22,4 @@ providers:
     acrimed:
         name: Acrimed
         url: http://www.acrimed.org
-        feed: http://www.acrimed.org/spip.php?page=backend 
+        feed: http://www.acrimed.org/spip.php?page=backend
