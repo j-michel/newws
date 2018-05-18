@@ -1,4 +1,12 @@
 providers:
+    reporterre:
+        name: Reporterre
+        url: https://reporterre.net/
+        feed: https://reporterre.net/spip.php?page=backend-simple
+    diplo:
+        name: Le Monde diplomatique
+        url: https://www.monde-diplomatique.fr
+        feed: https://www.monde-diplomatique.fr/rss/
     mediapart:
         name: Mediapart
         url: https://www.mediapart.fr
