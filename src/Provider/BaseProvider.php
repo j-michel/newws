@@ -62,12 +62,12 @@ class BaseProvider
 
   protected function getItemCoverUrl($item)
   {
-    return "https://placeimg.com/640/480/people";
+    return null;
   }
 
   protected function getAuthor($item)
   {
-    return $item->getAuthor() ? $item->getAuthor()->getName() : "";
+    return $item->getAuthor() ? $item->getAuthor()->getName() : null;
   }
 
   protected function getPublishedAt($item)

@@ -12,7 +12,7 @@ return new class extends DefaultDeployer
             // the absolute path of the remote server directory where the project is deployed
             ->deployDir('/var/www/newws')
             // the URL of the Git repository where the project code is hosted
-            ->repositoryUrl('git@github.com:j-michel/newws.git') 
+            ->repositoryUrl('git@github.com:j-michel/newws.git')
             // the repository branch to deploy
             ->repositoryBranch('master')
         ;
@@ -27,7 +27,7 @@ return new class extends DefaultDeployer
     // run some local or remote commands after the deployment is finished
     public function beforeFinishingDeploy()
     {
-        // $this->runRemote('{{ console_bin }} app:my-task-name');
+        $this->runRemote('export DATABASE_URL="mysql://root:password99__@127.0.0.1:3306/newws" && ./bin/console doctrine:schema:update --force');
         // $this->runLocal('say "The deployment has finished."');
     }
 };

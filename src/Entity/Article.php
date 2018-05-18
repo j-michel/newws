@@ -32,7 +32,7 @@ class Article
     private $url;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $coverUrl;
 
@@ -46,6 +46,10 @@ class Article
      */
     private $provider;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $author;
 
     public function getId()
     {
@@ -105,7 +109,7 @@ class Article
         return $this->coverUrl;
     }
 
-    public function setCoverUrl(string $coverUrl): self
+    public function setCoverUrl($coverUrl): self
     {
         $this->coverUrl = $coverUrl;
 
@@ -120,6 +124,18 @@ class Article
     public function setProvider(string $provider): self
     {
         $this->provider = $provider;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor($author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

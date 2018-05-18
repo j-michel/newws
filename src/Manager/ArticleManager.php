@@ -31,6 +31,7 @@ class ArticleManager
         $article->setUrl($data['url']);
         $article->setCoverUrl($data['coverUrl']);
         $article->setProvider($data['provider']);
+        $article->setAuthor($data['author']);
         $article->setPublishedAt($data['publishedAt']);
 
         $this->articleRepository->save($article);
