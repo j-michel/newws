@@ -3,30 +3,51 @@
 
 
 {% block body %}
-  {% for article in articles %}
 
-      {% set provider = provider_manager.getOne(article.provider) %}
 
-      <div class="uk-card-small uk-card-default uk-card-hover uk-grid-collapse uk-margin" uk-grid>
-          <div class="uk-card-media-left uk-cover-container uk-width-1-4@s">
-              <img src="{{article.coverUrl}}" alt="" uk-cover>
-              <canvas width="600" height="400"></canvas>
+    <h1>Les derniers articles !</h1>
+
+    <div id="articles">
+
+      {% for article in articles %}
+
+          {% set provider = provider_manager.getOne(article.provider) %}
+          {% set coverUrl = article.coverUrl ? article.coverUrl : '/img/' ~ article.provider ~ '.jpg' %}
+
+          <div class="article">
+            <div class="thumbnail">
+              <figure>
+                <a href="{{article.url}}" target="_blank">
+                  <img src="{{coverUrl}}" alt="{{article.title}}" />
+                </a>
+              </figure>
+            </div>
+            <div class="content">
+              <h2>
+                <a href="{{article.url}}" target="_blank">
+                  {{ article.title }}
+                </a>
+              </h2>
+
+              <p class="article-meta">
+                {{ article.publishedAt | date('d/m') }}
+                - <a href="{{ provider.url }}">{{ provider.name }}</a>
+                {% if article.author and article.author != provider.name and article.author != article.provider %}
+                - <a href="#">{{ article.author }}</a>
+                {% endif %}
+
+              </p>
+
+              <p class="article-description">
+                {{article.description }}
+              </p>
+
+            </div>
+
           </div>
-          <div class="uk-width-3-4@s">
-              <div class="uk-card-body">
-                  <h3 class="uk-card-title">
-                    <a href="{{article.url}}" target="_blank">{{ article.title }}</a>
-                  </h3>
-                  <p>{{article.description }}</p>
-              </div>
-              <div class="uk-card-footer">
-                  <p>
-                      {{ article.publishedAt | date('d/m/Y') }} -
-                      <a href="{{ provider.url }}">{{ provider.name }}</a> -
-                      {{ article.author }}
-                  </p>
-              </div>
-          </div>
-      </div>
-  {% endfor %}
+
+      {% endfor %}
+    </div>
+
+
 {% endblock %}

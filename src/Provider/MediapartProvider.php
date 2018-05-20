@@ -10,9 +10,11 @@ class MediapartProvider extends BaseProvider
 
   protected function getItemDescription($item)
   {
-    $crawler = new Crawler($item->getDescription());
+    $client = new Client();
 
-    return $crawler->filter('p')->first()->text();
+    $crawler = $client->request('GET', $item->getLink());
+
+    return $crawler->filterXPath("//meta[@name='description']")->first()->attr('content');
   }
 
   protected function getPublishedAt($item)
