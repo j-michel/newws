@@ -30,7 +30,7 @@
               </h2>
 
               <p class="article-meta">
-                {{ article.publishedAt | localizeddate('medium', 'none', 'fr') }}
+                {{ article.publishedAt | localizeddate('medium', 'none') }}
                 - <a href="{{ provider.url }}" target="_blank">{{ provider.name }}</a>
                 {% if article.author and article.author != provider.name and article.author != article.provider %}
                 - <a href="#">{{ article.author }}</a>
