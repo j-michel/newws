@@ -1,4 +1,20 @@
 providers:
+    regards:
+        name: Regards
+        url: http://www.regards.fr
+        feed: http://www.regards.fr/spip.php?page=backend
+    basta:
+        name: Basta !
+        url: https://www.bastamag.net
+        feed: https://www.bastamag.net/spip.php?page=backend
+    alteco:
+        name: Alternatives Economiques
+        url: https://www.alternatives-economiques.fr
+        feed: https://www.alternatives-economiques.fr/rss.xml
+    lesjours:
+        name: Les Jours
+        url: https://lesjours.fr
+        feed: https://lesjours.fr/rss.xml
     reporterre:
         name: Reporterre
         url: https://reporterre.net/
