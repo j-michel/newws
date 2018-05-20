@@ -52,6 +52,13 @@ a:hover{
     padding: 50px 30px 0;
 }
 
+#main h1{
+  font-size: 100px;
+  color: #E63B2E;
+  font-weight: bold;
+  margin: 0;
+}
+
 #main #articles{
   margin-top: 50px;
 }
