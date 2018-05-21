@@ -33,6 +33,7 @@ class ArticleManager
         $article->setProvider($data['provider']);
         $article->setAuthor($data['author']);
         $article->setPublishedAt($data['publishedAt']);
+        $article->setIsFree($data['isFree']);
 
         $this->articleRepository->save($article);
       }

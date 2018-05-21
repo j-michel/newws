@@ -1,49 +1,72 @@
 providers:
+    humanite:
+        name: L'Humanité
+        url: https://www.humanite.fr
+        feeds:
+          - https://www.humanite.fr/rss/actu.rss
+    asi:
+        name: Arrêt sur images
+        url: https://www.arretsurimages.net/
+        feeds:
+          - https://api.arretsurimages.net/api/public/rss/article
+          - https://api.arretsurimages.net/api/public/rss/chronique
     regards:
         name: Regards
         url: http://www.regards.fr
-        feed: http://www.regards.fr/spip.php?page=backend
+        feeds:
+          - http://www.regards.fr/spip.php?page=backend
     basta:
         name: Basta !
         url: https://www.bastamag.net
-        feed: https://www.bastamag.net/spip.php?page=backend
+        feeds:
+          - https://www.bastamag.net/spip.php?page=backend
     alteco:
         name: Alternatives Economiques
         url: https://www.alternatives-economiques.fr
-        feed: https://www.alternatives-economiques.fr/rss.xml
+        feeds:
+          - https://www.alternatives-economiques.fr/rss.xml
     lesjours:
         name: Les Jours
         url: https://lesjours.fr
-        feed: https://lesjours.fr/rss.xml
+        feeds:
+          - https://lesjours.fr/rss.xml
     reporterre:
         name: Reporterre
         url: https://reporterre.net/
-        feed: https://reporterre.net/spip.php?page=backend-simple
+        feeds:
+          - https://reporterre.net/spip.php?page=backend-simple
     diplo:
         name: Le Monde diplomatique
         url: https://www.monde-diplomatique.fr
-        feed: https://www.monde-diplomatique.fr/rss/
+        feeds:
+          - https://www.monde-diplomatique.fr/rss/
     mediapart:
         name: Mediapart
         url: https://www.mediapart.fr
-        feed: https://www.mediapart.fr/articles/feed
+        feeds:
+          - https://www.mediapart.fr/articles/feed
     ballast:
         name: Ballast
         url: https://www.revue-ballast.fr
-        feed: https://www.revue-ballast.fr/feed/
+        feeds:
+          - https://www.revue-ballast.fr/feed/
     lundimatin:
         name: lundimatin
         url: https://lundi.am
-        feed: https://lundi.am/spip.php?page=backend
+        feeds:
+          - https://lundi.am/spip.php?page=backend
     fakir:
         name: Fakir
         url: http://www.fakirpresse.info
-        feed: http://www.fakirpresse.info/spip.php?page=backend
+        feeds:
+          - http://www.fakirpresse.info/spip.php?page=backend
     labas:
         name: Là-bas si j'y suis
         url: https://la-bas.org
-        feed: https://la-bas.org/spip.php?page=backend
+        feeds:
+          - https://la-bas.org/spip.php?page=backend
     acrimed:
         name: Acrimed
         url: http://www.acrimed.org
-        feed: http://www.acrimed.org/spip.php?page=backend
+        feeds:
+          - http://www.acrimed.org/spip.php?page=backend

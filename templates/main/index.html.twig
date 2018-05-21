@@ -30,12 +30,12 @@
               </h2>
 
               <p class="article-meta">
-                {{ article.publishedAt | localizeddate('medium', 'none') }}
+                {% if article.isFree %}Gratuit{% else %}Payant{% endif %}
+                - {{ article.publishedAt | localizeddate('medium', 'none') }}
                 - <a href="{{ provider.url }}" target="_blank">{{ provider.name }}</a>
                 {% if article.author and article.author != provider.name and article.author != article.provider %}
-                - <a href="#">{{ article.author }}</a>
+                - {{ article.author }}
                 {% endif %}
-
               </p>
 
               <p class="article-description">

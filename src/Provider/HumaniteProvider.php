@@ -5,16 +5,14 @@ namespace App\Provider;
 use Symfony\Component\DomCrawler\Crawler;
 use Goutte\Client;
 
-class MediapartProvider extends BaseProvider
+class HumaniteProvider extends BaseProvider
 {
 
   protected function getItemDescription($item)
   {
-    $client = new Client();
+    $crawler = new Crawler($item->getDescription());
 
-    $crawler = $client->request('GET', $item->getLink());
-
-    return $crawler->filterXPath("//meta[@name='description']")->first()->attr('content');
+    return $crawler->filter('p')->count() > 0 ? $crawler->filter('p')->first()->text() : $crawler->filter('div')->first()->text();
   }
 
   protected function getPublishedAt($item)
@@ -29,10 +27,5 @@ class MediapartProvider extends BaseProvider
     $crawler = $client->request('GET', $item->getLink());
 
     return $crawler->filterXPath("//meta[@property='og:image']")->first()->attr('content');
-  }
-
-  protected function getIsFree($item)
-  {
-    return false;
   }
 }

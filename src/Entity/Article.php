@@ -51,6 +51,11 @@ class Article
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isFree;
+
     public function getId()
     {
         return $this->id;
@@ -136,6 +141,18 @@ class Article
     public function setAuthor($author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getIsFree(): ?string
+    {
+        return $this->isFree;
+    }
+
+    public function setIsFree($isFree): self
+    {
+        $this->isFree = $isFree;
 
         return $this;
     }

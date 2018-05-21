@@ -5,7 +5,7 @@ namespace App\Provider;
 use Symfony\Component\DomCrawler\Crawler;
 use Goutte\Client;
 
-class MediapartProvider extends BaseProvider
+class AsiProvider extends BaseProvider
 {
 
   protected function getItemDescription($item)
@@ -14,12 +14,7 @@ class MediapartProvider extends BaseProvider
 
     $crawler = $client->request('GET', $item->getLink());
 
-    return $crawler->filterXPath("//meta[@name='description']")->first()->attr('content');
-  }
-
-  protected function getPublishedAt($item)
-  {
-    return $item->getLastModified();
+    return $crawler->filterXPath("//meta[@property='og:title']")->first()->attr('content');
   }
 
   protected function getItemCoverUrl($item)
@@ -31,8 +26,17 @@ class MediapartProvider extends BaseProvider
     return $crawler->filterXPath("//meta[@property='og:image']")->first()->attr('content');
   }
 
+  protected function getPublishedAt($item)
+  {
+    return $item->getLastModified();
+  }
+
   protected function getIsFree($item)
   {
-    return false;
+    $client = new Client();
+
+    $crawler = $client->request('GET', $item->getLink());
+
+    return $crawler->filterXPath("//meta[@itemprop='articleSection']")->first()->attr('content') == 'chronique' ? true : false;
   }
 }

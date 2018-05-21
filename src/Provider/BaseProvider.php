@@ -9,32 +9,35 @@ class BaseProvider
 
   private $id;
   private $name;
-  private $feed;
+  private $feeds;
   private $url;
 
   public function __construct($id, $providerData)
   {
-      $this->id   = $id;
-      $this->name = $providerData['name'];
-      $this->feed = $providerData['feed'];
-      $this->url  = $providerData['url'];
+      $this->id    = $id;
+      $this->name  = $providerData['name'];
+      $this->feeds = $providerData['feeds'];
+      $this->url   = $providerData['url'];
   }
 
   public function getNewArticles()
   {
-    $items    = $this->getFeedItems();
+    $results = $this->getFeedItems();
     $articles = array();
 
-    foreach ($items as $item) {
-        $articles[] = array(
-          'title'       => $this->getItemTitle($item),
-          'description' => $this->getItemDescription($item),
-          'url'         => $this->getItemLink($item),
-          'coverUrl'    => $this->getItemCoverUrl($item),
-          'author'      => $this->getAuthor($item),
-          'publishedAt' => $this->getPublishedAt($item),
-          'provider'    => $this->id
-        );
+    foreach ($results as $items) {
+      foreach ($items as $item) {
+          $articles[] = array(
+            'title'       => $this->getItemTitle($item),
+            'description' => $this->getItemDescription($item),
+            'url'         => $this->getItemLink($item),
+            'coverUrl'    => $this->getItemCoverUrl($item),
+            'author'      => $this->getAuthor($item),
+            'publishedAt' => $this->getPublishedAt($item),
+            'isFree'      => $this->getIsFree($item),
+            'provider'    => $this->id
+          );
+      }
     }
 
     return $articles;
@@ -42,7 +45,15 @@ class BaseProvider
 
   protected function getFeedItems()
   {
-    return Factory::create()->getFeedIo()->read($this->feed)->getFeed();
+    $yesterday = new \DateTime('-3 days');
+    $feedIo = Factory::create()->getFeedIo();
+    $results = array();
+
+    foreach ($this->feeds as $feed) {
+      $results[] = $feedIo->read($feed, null, $yesterday)->getFeed();
+    }
+
+    return $results;
   }
 
   protected function getItemTitle($item)
@@ -79,5 +90,10 @@ class BaseProvider
         return new \DateTime($element->getValue());
       }
     }
+  }
+
+  protected function getIsFree($item)
+  {
+    return true;
   }
 }

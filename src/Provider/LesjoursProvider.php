@@ -18,7 +18,7 @@ class LesjoursProvider extends BaseProvider
   {
     return $item->getLastModified();
   }
-  
+
   protected function getItemCoverUrl($item)
   {
     $client = new Client();
@@ -26,5 +26,10 @@ class LesjoursProvider extends BaseProvider
     $crawler = $client->request('GET', $item->getLink());
 
     return $crawler->filterXPath("//meta[@property='og:image']")->first()->attr('content');
+  }
+
+  protected function getIsFree($item)
+  {
+    return false;
   }
 }
