@@ -4,6 +4,18 @@ providers:
         url: https://www.youtube.com/channel/UCiZ005Ac5axBC9-p0Zz3GPQ
         feeds:
           - https://www.youtube.com/feeds/videos.xml?channel_id=UCiZ005Ac5axBC9-p0Zz3GPQ
+    thinkerview:
+        name: Thinkerview
+        description: Interviews et perspectives déformatées dans un monde aux informations caviardées.
+        url: https://www.youtube.com/channel/UCQgWpmt02UtJkyO32HGUASQ
+        feeds:
+          - https://www.youtube.com/feeds/videos.xml?channel_id=UCQgWpmt02UtJkyO32HGUASQ
+    olg:
+        name: Ouvrez les guillemets
+        description: La nouvelle chronique du système.
+        url: https://www.youtube.com/playlist?list=PL0H7ONNEUnnt59niYAZ07dFTi99u2L2n_
+        feeds:
+          - https://www.youtube.com/feeds/videos.xml?playlist_id=PL0H7ONNEUnnt59niYAZ07dFTi99u2L2n_
     humanite:
         name: L'Humanité
         url: https://www.humanite.fr
