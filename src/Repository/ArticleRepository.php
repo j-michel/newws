@@ -33,6 +33,18 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
 
+    public function getLastsByType($type)
+    {
+        return $this->createQueryBuilder('article')
+            ->where('article.type = :type')
+            ->setParameter('type', $type)
+            ->orderBy('article.publishedAt', 'DESC')
+            ->setMaxResults(50)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     public function getLastsByProvider($id)
     {
         return $this->createQueryBuilder('article')

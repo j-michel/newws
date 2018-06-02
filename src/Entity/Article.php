@@ -56,6 +56,11 @@ class Article
      */
     private $isFree;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $type;
+
     public function getId()
     {
         return $this->id;
@@ -153,6 +158,18 @@ class Article
     public function setIsFree($isFree): self
     {
         $this->isFree = $isFree;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType($type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

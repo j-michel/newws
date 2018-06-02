@@ -35,6 +35,7 @@ class BaseProvider
             'author'      => $this->getAuthor($item),
             'publishedAt' => $this->getPublishedAt($item),
             'isFree'      => $this->getIsFree($item),
+            'type'        => $this->getType($item),
             'provider'    => $this->id
           );
       }
@@ -95,5 +96,10 @@ class BaseProvider
   protected function getIsFree($item)
   {
     return true;
+  }
+
+  protected function getType($item)
+  {
+    return 'article';
   }
 }

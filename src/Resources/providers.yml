@@ -1,4 +1,9 @@
 providers:
+    taranis:
+        name: TARANIS NEWS
+        url: https://www.youtube.com/channel/UCiZ005Ac5axBC9-p0Zz3GPQ
+        feeds:
+          - https://www.youtube.com/feeds/videos.xml?channel_id=UCiZ005Ac5axBC9-p0Zz3GPQ
     humanite:
         name: L'Humanité
         url: https://www.humanite.fr

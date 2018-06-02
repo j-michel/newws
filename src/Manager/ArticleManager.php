@@ -34,6 +34,7 @@ class ArticleManager
         $article->setAuthor($data['author']);
         $article->setPublishedAt($data['publishedAt']);
         $article->setIsFree($data['isFree']);
+        $article->setType($data['type']);
 
         $this->articleRepository->save($article);
       }

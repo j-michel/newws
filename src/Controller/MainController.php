@@ -20,6 +20,26 @@ class MainController extends Controller
     }
 
     /**
+     * @Route("/articles", name="articles")
+     */
+    public function articles()
+    {
+        return $this->render('main/articles.html.twig', [
+            'articles' => $this->getDoctrine()->getManager()->getRepository(Article::class)->getLastsByType('article'),
+        ]);
+    }
+
+    /**
+     * @Route("/videos", name="videos")
+     */
+    public function videos()
+    {
+        return $this->render('main/videos.html.twig', [
+            'articles' => $this->getDoctrine()->getManager()->getRepository(Article::class)->getLastsByType('video'),
+        ]);
+    }
+
+    /**
      * @Route("/sources/{id}", name="provider")
      */
     public function provider($id, ProviderManager $providerManager)
