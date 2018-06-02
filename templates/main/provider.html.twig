@@ -2,7 +2,8 @@
 
 {% block body %}
 
-    <h1>Articles</h1>
+    <h1>{{provider.name}}</h1>
+    <p>{% if provider.description is defined %}{{provider.description}}{% endif %}</p>
 
     {% include 'articles.html.twig' with {'articles': articles} %}
 

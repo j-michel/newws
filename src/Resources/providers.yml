@@ -6,62 +6,74 @@ providers:
           - https://www.humanite.fr/rss/actu.rss
     asi:
         name: Arrêt sur images
+        description: La critique média en toute indépendance.
         url: https://www.arretsurimages.net/
         feeds:
           - https://api.arretsurimages.net/api/public/rss/article
           - https://api.arretsurimages.net/api/public/rss/chronique
     regards:
         name: Regards
+        description: Regards est un journal d’information engagé.
         url: http://www.regards.fr
         feeds:
           - http://www.regards.fr/spip.php?page=backend
     basta:
         name: Basta !
+        description: Basta ! est un média d’information en ligne indépendant sur l’actualité écologique et sociale.
         url: https://www.bastamag.net
         feeds:
           - https://www.bastamag.net/spip.php?page=backend
     alteco:
         name: Alternatives Economiques
+        description: Analyse l’actualité économique, sociale, politique et environnementale en France, en Europe et à l’international."
         url: https://www.alternatives-economiques.fr
         feeds:
           - https://www.alternatives-economiques.fr/rss.xml
     lesjours:
         name: Les Jours
+        description: Obsessions, actualité, journalisme en séries.
         url: https://lesjours.fr
         feeds:
           - https://lesjours.fr/rss.xml
     reporterre:
         name: Reporterre
+        description: Le quotidien de l ’écologie
         url: https://reporterre.net/
         feeds:
           - https://reporterre.net/spip.php?page=backend-simple
     diplo:
         name: Le Monde diplomatique
+        description: Mensuel critique d'informations et d'analyses
         url: https://www.monde-diplomatique.fr
         feeds:
           - https://www.monde-diplomatique.fr/rss/
     mediapart:
         name: Mediapart
+        description: Mediapart est le site d'information indépendant lancé en mars 2008 autour d'Edwy Plenel avec une équipe éditoriale de plus de 35 journalistes.
         url: https://www.mediapart.fr
         feeds:
           - https://www.mediapart.fr/articles/feed
     ballast:
         name: Ballast
+        description: Tenir tête, fédérer, amorcer
         url: https://www.revue-ballast.fr
         feeds:
           - https://www.revue-ballast.fr/feed/
     lundimatin:
         name: lundimatin
+        description: Le lundi matin, un lundimatin.
         url: https://lundi.am
         feeds:
           - https://lundi.am/spip.php?page=backend
     fakir:
         name: Fakir
+        description: Journal fâché avec tout le monde. Ou presque.
         url: http://www.fakirpresse.info
         feeds:
           - http://www.fakirpresse.info/spip.php?page=backend
     labas:
         name: Là-bas si j'y suis
+        description: Plus près des jetables que des notables
         url: https://la-bas.org
         feeds:
           - https://la-bas.org/spip.php?page=backend

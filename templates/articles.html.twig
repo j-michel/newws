@@ -1,0 +1,41 @@
+<div id="articles">
+
+  {% for article in articles %}
+
+      {% set provider = provider_manager.getOne(article.provider) %}
+      {% set coverUrl = article.coverUrl ? article.coverUrl : '/img/' ~ article.provider ~ '.jpg' %}
+
+      <div class="article">
+        <div class="thumbnail">
+          <figure>
+            <a href="{{article.url}}" target="_blank">
+              <img src="{{coverUrl}}" alt="{{article.title}}" />
+            </a>
+          </figure>
+        </div>
+        <div class="content">
+          <h2>
+            <a href="{{article.url}}" target="_blank">
+              {{ article.title }}
+            </a>
+          </h2>
+
+          <p class="article-meta">
+            {% if article.isFree %}Gratuit{% else %}Payant{% endif %}
+            - {{ article.publishedAt | localizeddate('medium', 'none') }}
+            - <a href="{{ path('provider', {'id': article.provider}) }}">{{ provider.name }}</a>
+            {% if article.author and article.author != provider.name and article.author != article.provider %}
+            - {{ article.author }}
+            {% endif %}
+          </p>
+
+          <p class="article-description">
+            {{article.description }}
+          </p>
+
+        </div>
+
+      </div>
+
+  {% endfor %}
+</div>
