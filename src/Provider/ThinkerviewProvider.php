@@ -7,6 +7,12 @@ use Goutte\Client;
 
 class ThinkerviewProvider extends BaseProvider
 {
+
+  protected function getItemTitle($item)
+  {
+    return strpos($item->getTitle(), 'EN DIRECT') == false ? $item->getTitle() : substr($item->getTitle(), 0 , strlen($item->getTitle()) - 11);
+  }
+
   protected function getItemDescription($item)
   {
     return "";

@@ -7,9 +7,26 @@ use Goutte\Client;
 
 class OlgProvider extends BaseProvider
 {
+
+  protected function getItemTitle($item)
+  {
+    return strpos($item->getTitle(), 'Usul.') === false ? $item->getTitle() : substr($item->getTitle(), 6);
+  }
+
   protected function getItemDescription($item)
   {
-    return "";
+    foreach ($item->getAllElements() as $element) {
+
+      if($element->getName() == "media:group"){
+
+          foreach ($element->getAllElements() as $mediaElement) {
+            if($mediaElement->getName() == "media:description"){
+              return substr($mediaElement->getValue(), 0, strpos($mediaElement->getValue(), '☞') -1 );
+            }
+          }
+        }
+      }
+      return '';
   }
 
   protected function getPublishedAt($item)
